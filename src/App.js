@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Home from './home/home'
+import Navbar from './Navbar/Navbar'
+import Footer from './Footer/footer'
+import Pharma from './home/pharma'
+import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Sidebar from './sidebar/sidebar'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const [cellNav,setcelNav]=useState(true);
+  const reciveCell=(cell)=>{
+    setcelNav(cell);
+    console.log(cell);
+  }
+    const LayOut=()=>{
+        return(
+            <div >
+                < Navbar sendcell={reciveCell}/>
+
+                <div className='flex gap-12'>
+                    {
+                      cellNav?<Sidebar className="w-[30%]"/>:null
+                    }
+                    <Outlet className="w-[70%]" />
+                </div>
+                <Footer/>
+            </div>
+                )
+    }
+    const router=createBrowserRouter([
+      {
+        path:'/',
+        element:<LayOut/>,
+        children:[
+          {
+            path:'/',
+            element:<Home/>
+          },
+          {
+            path:'/pharma',
+            element:<Pharma/>
+
+          },
+        ]
+      }
+    ])
+  return <RouterProvider router={router}/> 
 }
 
-export default App;
+export default App
