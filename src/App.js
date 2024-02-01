@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  {React, useState } from 'react'
 import Home from './home/home'
 import Navbar from './Navbar/Navbar'
 import Footer from './Footer/footer'
@@ -7,21 +7,25 @@ import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Sidebar from './sidebar/sidebar'
 
 const App = () => {
-  const [cellNav,setcelNav]=useState(true);
+  const [cellNav,setcelNav]=useState();
   const reciveCell=(cell)=>{
     setcelNav(cell);
     console.log(cell);
   }
     const LayOut=()=>{
         return(
-            <div >
+            <div>
                 < Navbar sendcell={reciveCell}/>
 
                 <div className='flex gap-12'>
                     {
-                      cellNav?<Sidebar className="w-[30%]"/>:null
+                      cellNav?<div className="w-[20%]">
+                        <Sidebar />
+                      </div>:null
                     }
-                    <Outlet className="w-[70%]" />
+                  <div className="w-[79%]">
+                  <Outlet  />
+                  </div>
                 </div>
                 <Footer/>
             </div>

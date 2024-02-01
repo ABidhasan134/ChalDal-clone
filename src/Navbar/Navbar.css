@@ -1,0 +1,7 @@
+.btn-colors{
+    color: aqua;
+    border: 2px solid red
+}
+.btn-colors:hover{
+    background: palevioletred;
+}
