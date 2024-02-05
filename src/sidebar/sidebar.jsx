@@ -1,9 +1,6 @@
 import React from 'react'
 
 import {Link} from 'react-router-dom'
-import { MdLocalGroceryStore } from "react-icons/md";
-import { GiDoctorFace } from "react-icons/gi";
-import { FaCookie } from "react-icons/fa";
 import { FiHelpCircle } from "react-icons/fi";
 import { IoIosText } from "react-icons/io";
 import Togglepage from '../Navbar/components/pageSwap';
@@ -12,9 +9,9 @@ import Togglepage from '../Navbar/components/pageSwap';
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className='m-0 '>
       {/* // side bar manu list  */}
-        <div className='pl-2 z-10 h-[780px] overflow-auto border-2 border-pink-400'>
+        <div className=' pl-2 z-10 h-[780px] overflow-scroll border-2 border-pink-400'>
         {/* top 3 page link */}
          <Togglepage className='flex lg:gap-5 p-1 justify-center items-cente'/>
           <hr className='my-1 w-full border-black' />

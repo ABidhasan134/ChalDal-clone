@@ -3,7 +3,7 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 export default function ColorToggleButton() {
-  const [alignment, setAlignment] = React.useState('web');
+  const [alignment, setAlignment] = React.useState('Eng');
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);

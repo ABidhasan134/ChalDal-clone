@@ -1,4 +1,4 @@
-import  {React, useState } from 'react'
+import  {React, useRef, useState } from 'react'
 // import '../Navbar/Navbar.css';
 // importin icons
 import { MdLineWeight } from "react-icons/md";
@@ -14,6 +14,7 @@ const Navbar = (props) => {
     // declare state
     const [popUp,setPooUp]=useState(true);
     const [isActive,setActive]=useState(true);
+    const windowSize = useRef([window.innerWidth, window.innerHeight]);
     // lessing onclick for sidebar
     const handalOnclick=(e) => {
         // sidebar will show when user clicks
@@ -40,11 +41,22 @@ const Navbar = (props) => {
 
   return (
     // over view of navigation
-    <div className='sticky top-0 z-20 flex gap-2 sm:justify-start justify-between lg:gap-7 p-5 items-center bg-[#FFD670] w-full'>
+    <div className='sticky top-0 z-20 flex gap-2 sm:justify-start 
+    justify-between lg:gap-7 p-5 items-center bg-[#FFD670] w-full'>
         {/* div for responsness control */}
         <div className='flex items-center '>
         {/* side bar icon and heading of website */}
-        <MdLineWeight onClick={handalOnclick} className='py-2  text-2xl h-12 w-12 lg:text-4xl hover:bg-orange-400 hover:rounded-lg'/>
+        
+        {/* testing and clicking issu */}
+        <div>
+        {
+          windowSize.current[0] === 600 && popUp ? <p>here</p> :
+          <MdLineWeight onClick={handalOnclick} className='py-2 text-2xl h-12 w-12 lg:text-4xl hover:bg-orange-400 hover:rounded-lg'/>
+        }
+        </div>
+        
+
+
         <h1 className='lg:text-4xl italic  lg:visible'>Chaldal</h1>
         </div>
         {/* search product input section. this section will diseper when it less then sm: size*/}

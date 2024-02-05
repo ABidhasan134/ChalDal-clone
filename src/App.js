@@ -17,13 +17,14 @@ const App = () => {
             <div>
                 < Navbar sendcell={reciveCell}/>
 
-                <div className='flex gap-12'>
+                <div className='flex gap-1'>
                     {
-                      cellNav?<div className="w-[20%]">
+                      cellNav?<div className="sm:w-[20%] sm:relative 
+                      absolute bg-white w-[60%] z-20">
                         <Sidebar />
                       </div>:null
                     }
-                  <div className="w-[79%]">
+                  <div className=" w-full m-0 p-0 ">
                   <Outlet  />
                   </div>
                 </div>
